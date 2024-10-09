@@ -20,13 +20,21 @@ Note: Can be used with `oxsecurity/megalinter@beta` in your GitHub Action mega-l
 - Media
 
 - Linters enhancements
+  - Trivy
+    - Embed vulnerability database in Docker Image for running trivy on internet-free network
+    - Retry 5 times after 3 seconds in case of TooManyRequests when downloading vulnerability database
+    - If the retries did not succeed, call trivy with `--skip-db-update --skip-check-update` (not ideal but better than nothing)
+  - Bash/Perl: Support shell scripts with no extension and only support perl shebangs at the beginning of a file in <https://github.com/oxsecurity/megalinter/pull/4076>
 
 - Fixes
   - Add debug traces to investigate reporters activation
+  - Add more traces for ApiReporter
+  - Activate ApiReporter by default
 
 - Reporters
 
 - Doc
+  - Fix Grafana Home Dashboard to add missing criteria
   - Update PRE_COMMANDS documentation to describe all properties
   - Update Grafana documentation to fix secrets typo
 
@@ -35,6 +43,7 @@ Note: Can be used with `oxsecurity/megalinter@beta` in your GitHub Action mega-l
 - CI
   - Free space in release job to avoid no space left on device, by @nvuillam in <https://github.com/oxsecurity/megalinter/pull/3914>
   - Add `pytest-rerunfailures` to improve CI control jobs success, by @AlejandroSuero in <https://github.com/oxsecurity/megalinter/pull/3993>
+  - Send GITHUB_TOKEN to trivy-action
 
 - mega-linter-runner
 
@@ -171,6 +180,33 @@ Note: Can be used with `oxsecurity/megalinter@beta` in your GitHub Action mega-l
   - [actionlint](https://rhysd.github.io/actionlint/) from 1.7.1 to **1.7.2** on 2024-09-26
   - [clj-kondo](https://github.com/borkdude/clj-kondo) from 2024.09.26 to **2024.09.27** on 2024-09-26
   - [gitleaks](https://github.com/gitleaks/gitleaks) from 8.19.2 to **8.19.3** on 2024-09-26
+  - [pmd](https://pmd.github.io/) from 7.5.0 to **7.6.0** on 2024-09-27
+  - [trufflehog](https://github.com/trufflesecurity/trufflehog) from 3.82.5 to **3.82.6** on 2024-09-27
+  - [scalafix](https://scalacenter.github.io/scalafix/) from 0.12.1 to **0.13.0** on 2024-09-27
+  - [actionlint](https://rhysd.github.io/actionlint/) from 1.7.2 to **1.7.3** on 2024-09-29
+  - [checkstyle](https://checkstyle.org/) from 10.18.1 to **10.18.2** on 2024-09-29
+  - [cfn-lint](https://github.com/aws-cloudformation/cfn-lint) from 1.15.1 to **1.15.2** on 2024-09-30
+  - [cfn-lint](https://github.com/aws-cloudformation/cfn-lint) from 1.15.2 to **1.16.0** on 2024-10-04
+  - [pyright](https://github.com/Microsoft/pyright) from 1.1.382 to **1.1.383** on 2024-10-04
+  - [ruff](https://github.com/astral-sh/ruff) from 0.6.8 to **0.6.9** on 2024-10-04
+  - [checkov](https://www.checkov.io/) from 3.2.255 to **3.2.256** on 2024-10-04
+  - [kics](https://www.kics.io) from 2.1.2 to **2.1.3** on 2024-10-04
+  - [trivy-sbom](https://aquasecurity.github.io/trivy/) from 0.55.2 to **0.56.1** on 2024-10-04
+  - [trivy](https://aquasecurity.github.io/trivy/) from 0.55.2 to **0.56.1** on 2024-10-04
+  - [secretlint](https://github.com/secretlint/secretlint) from 8.2.4 to **8.3.0** on 2024-10-05
+  - [cpplint](https://github.com/cpplint/cpplint) from 1.6.1 to **2.0.0** on 2024-10-06
+  - [phpstan](https://phpstan.org/) from 1.12.5 to **1.12.6** on 2024-10-06
+  - [checkov](https://www.checkov.io/) from 3.2.256 to **3.2.257** on 2024-10-06
+  - [secretlint](https://github.com/secretlint/secretlint) from 8.3.0 to **8.4.0** on 2024-10-06
+  - [sqlfluff](https://www.sqlfluff.com/) from 3.2.0 to **3.2.1** on 2024-10-06
+  - [snakemake](https://snakemake.readthedocs.io/en/stable/) from 8.20.5 to **8.20.6** on 2024-10-07
+  - [lychee](https://lychee.cli.rs) from 0.15.1 to **0.16.1** on 2024-10-07
+  - [sqlfluff](https://www.sqlfluff.com/) from 3.2.1 to **3.2.2** on 2024-10-07
+  - [black](https://black.readthedocs.io/en/stable/) from 24.8.0 to **24.10.0** on 2024-10-07
+  - [syft](https://github.com/anchore/syft) from 1.13.0 to **1.14.0** on 2024-10-07
+  - [gitleaks](https://github.com/gitleaks/gitleaks) from 8.19.3 to **8.20.1** on 2024-10-08
+  - [trufflehog](https://github.com/trufflesecurity/trufflehog) from 3.82.6 to **3.82.7** on 2024-10-08
+  - [phplint](https://github.com/overtrue/phplint) from 9.4.1 to **9.5.2** on 2024-10-08
 <!-- linter-versions-end -->
 
 ## [v8.0.0] - 2024-08-19
